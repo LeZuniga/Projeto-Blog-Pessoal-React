@@ -3,14 +3,16 @@ import { Grid, Box, Typography, Button } from "@material-ui/core";
 import './Login.css';
 import { TextField } from "@mui/material";
 import { Link, useNavigate } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage'
 import UserLogin from "../../models/UserLogin";
 import { login } from "../../services/Service";
-
+import { useDispatch } from "react-redux";
+import { addToken } from "../../store/tokens/actions";
 
 function Login() {
-    let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+
+    let navigate = useNavigate()
+    const dispatch = useDispatch();
+    const [token, setToken] = useState('');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -31,6 +33,7 @@ function Login() {
 
     useEffect(() => {
         if (token != '') {
+            dispatch(addToken(token))
             navigate('/home')
         }
     }, [token])
@@ -49,6 +52,7 @@ function Login() {
             alert('Dados do usuário incosistentes. Erro ao logar');
         }
     }
+
 
     return (
         <Grid container direction='row' justifyContent="center" alignItems="center">
@@ -70,8 +74,8 @@ function Login() {
                             <Typography variant="subtitle1" gutterBottom align="center">Não tem uma conta ?</Typography>
                         </Box>
                         <Link to='/cadastro'>
-                            <Typography variant="subtitle1" gutterBottom align="center" style={{ fontWeight: "bold" }} >Cadastre-se</Typography>
-                        </Link>
+                        <Typography variant="subtitle1" gutterBottom align="center" style={{ fontWeight: "bold" }} >Cadastre-se</Typography>
+                            </Link>    
                     </Box>
                 </Box>
             </Grid>
@@ -82,6 +86,8 @@ function Login() {
             </Grid>
         </Grid>
     );
+
 }
+
 
 export default Login;
