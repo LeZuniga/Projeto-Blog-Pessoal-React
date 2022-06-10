@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Charis+SIL:wght@400;700&display=swap');
+
 .text-decorator-none {
     text-decoration: none;
+}
+
+.boxlogin{
+    background-color: #FAB1A0;
+}
+
+.texto{
+    font-family: 'Charis SIL', serif!important;
+    font-weight: 'bold';
+}
+.fontelogin{
+    font-family: 'Charis SIL', serif!important;
 }
