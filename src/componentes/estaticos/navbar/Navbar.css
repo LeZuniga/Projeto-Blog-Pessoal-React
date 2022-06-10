@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nuosu+SIL&display=swap');
+
 .text-decorator-none{
     text-decoration: none;
 }
 
 .cor {
-    background-color: black;
+    background-color: #FF2F00!important;
 }
 
 .texto-navbar{
-    color: white!important;
+    color: #050505!important;
+    font-family: 'Nuosu SIL', serif!important;
 }
